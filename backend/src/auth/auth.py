@@ -76,7 +76,19 @@ def get_token_auth_header():
 
 
 def check_permissions(permission, payload):
-    raise Exception('Not Implemented')
+    permissions = payload['permissions']
+
+    if not permissions:
+        raise AuthError({
+            'message': 'Permission header not found.'
+        }, 403)
+    
+    if permission not in permissions:
+        raise AuthError({
+            'message': 'Permission denied.'
+        }, 403)
+
+    return True
 
 
 '''

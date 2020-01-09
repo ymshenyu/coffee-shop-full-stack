@@ -58,9 +58,10 @@ def get_token_auth_header():
         raise AuthError({
             'message': 'Invalid header.'
         }, 401)
-    
+
     token = parts[1]
     return token
+
 
 '''
 @TODO implement check_permissions(permission, payload) method
@@ -82,7 +83,7 @@ def check_permissions(permission, payload):
         raise AuthError({
             'message': 'Permission header not found.'
         }, 403)
-    
+
     if permission not in permissions:
         raise AuthError({
             'message': 'Permission denied.'

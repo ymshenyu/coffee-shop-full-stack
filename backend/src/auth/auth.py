@@ -65,7 +65,7 @@ def check_permissions(permission, payload):
     if permission not in permissions:
         raise AuthError({
             'message': 'Permission denied.'
-        }, 403)
+        }, 401)
 
     return True
 
